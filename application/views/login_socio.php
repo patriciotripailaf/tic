@@ -8,10 +8,14 @@
 	<body>
 		<h1>EDITAR DATOS</h1><hr>
 		<div>
-				Usuario: <input class="form-control" type="text" name="usuario" placeholder="Ingrese nombre de usuario">
-				Contraseña: <input class="form-control" type="text" name="pass" placeholder="Ingrese su contraseña">
-			<button class="btn btn-primary">Login</button>
-			<button class="btn btn-primary">Registrar</button>			
+			<form method="POST" name="login">
+				<label for="usuario">Usuario:</label>
+				<input class="form-control" type="text" name="usuario" placeholder="Ingrese nombre de usuario">
+				<label for="pass">Contraseña:</label>
+				<input class="form-control" type="text" name="pass" placeholder="Ingrese su contraseña">
+				<button class="btn btn-primary">Login</button>
+				<button class="btn btn-primary">Registrar</button>			
+			</form>
 		</div>
 	</body>
 </html>
