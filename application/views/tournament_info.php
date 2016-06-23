@@ -13,42 +13,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h1>Información de los Torneos</h1>
 
 		<div>
-				<table>
-			<th>Nombre</th>
-			<th>Fecha</th>
-			<th>Dirección</th>
-			<th>Ganador</th>
-			<?php
-
-				$tournamentInfo[0]['nombre']='torneo uno';
-				$tournamentInfo[0]['fecha']='04/02/15';
-				$tournamentInfo[0]['direccion']='calle 1';
-				$tournamentInfo[0]['ganador']='jugador 1';
-				$tournamentInfo[1]['nombre']='torneo dos';
-				$tournamentInfo[1]['fecha']='09/05/15';
-				$tournamentInfo[1]['direccion']='calle 2';
-				$tournamentInfo[1]['ganador']='jugador 2';
-				$tournamentInfo[2]['nombre']='torneo tres';
-				$tournamentInfo[2]['fecha']='15/01/16';
-				$tournamentInfo[2]['direccion']='calle 3';
-				$tournamentInfo[2]['ganador']='jugador 3';
-
-				for($i=0;$i<count($tournamentInfo);$i++){
-					echo '<tr>';
-					echo '<td>'.$tournamentInfo[$i]['nombre'].'</td>';
-					echo '<td>'.$tournamentInfo[$i]['fecha'].'</td>';
-					echo '<td>'.$tournamentInfo[$i]['direccion'].'</td>';
-					echo '<td>'.$tournamentInfo[$i]['ganador'].'</td>';
-					echo '</tr>';
-				}
-			?>
-		</table>
+			<table>
+				<th>Id de Torneo</th>
+				<th>Nombre</th>
+				<th>Fecha</th>
+				<th>Dirección</th>
+				<th>Ganador</th>
+				<?php
+					for($i=0;$i<count($dataTorneos);$i++){
+						echo '<tr>';
+						echo '<td>'.$dataTorneos[$i]['idTorneo'].'</td>';
+						echo '<td>'.$dataTorneos[$i]['nombreTorneo'].'</td>';
+						echo '<td>'.$dataTorneos[$i]['fechaTorneo'].'</td>';
+						echo '<td>'.$dataTorneos[$i]['direccion'].'</td>';
+						echo '<td>'.$dataTorneos[$i]['ganador'].'</td>';
+						echo '</tr>';
+					}
+				?>
+			</table>
 		<?php	
-		echo form_open('info_torneos/crear_torneo')."\n";
-		echo form_submit('crear', 'Crear torneo');
-		echo form_close();
+		echo "<br>";
+		echo anchor('tournamentController/crearTorneo', 'Crear Torneo');
 
-?>
+		?>
 		</div>
 	</div>
 </body>
