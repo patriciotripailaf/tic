@@ -88,5 +88,16 @@
         $this->db->insert('torneo', $data);
     }
     
+    function userAdmin($usuario){
+        
+        $sql = "SELECT administrador FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '".$usuario."'";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
 }
 ?>
