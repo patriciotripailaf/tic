@@ -28,6 +28,18 @@
         $qry = $this->db->query($sql);
     }
 
+    function noticias(){
+        
+        $sql = "SELECT * FROM `noticia`";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
     function eliminarNoticia($idNoticia){
         
         $sql = "DELETE FROM `noticia` WHERE `noticia`.`idnoticia` = ".$idNoticia;
@@ -55,6 +67,42 @@
     function numeroSocios(){
         
         $sql = "SELECT COUNT(*) FROM `socio`";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
+    function torneos(){
+        
+        $sql = "SELECT * FROM `torneo`";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
+    function crearTorneo($nombre,$fecha,$direccion,$ganador){
+        
+        $data = array(
+            'idTorneo' => null,
+            'nombre_torneo' => $nombre ,
+            'fecha_torneo' => $fecha ,
+            'direccion' => $direccion ,
+            'ganador' => $ganador);
+        
+        $this->db->insert('torneo', $data);
+    }
+    
+    function userAdmin($usuario){
+        
+        $sql = "SELECT administrador FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '".$usuario."'";
         $qry = $this->db->query($sql);
         if($qry->num_rows() > 0){
             return $qry->result();

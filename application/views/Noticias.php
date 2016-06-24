@@ -18,15 +18,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<th>Nombre</th>
 				<th>Fecha</th>
 				<th>Dirección</th>
-				<th>Ganador</th>
 				<?php
-					for($i=0;$i<count($dataTorneos);$i++){
+					for($i=0;$i<count($dataNoticias);$i++){
 						echo '<tr>';
-						echo '<td>'.$dataTorneos[$i]['idTorneo'].'</td>';
-						echo '<td>'.$dataTorneos[$i]['nombreTorneo'].'</td>';
-						echo '<td>'.$dataTorneos[$i]['fechaTorneo'].'</td>';
-						echo '<td>'.$dataTorneos[$i]['direccion'].'</td>';
-						echo '<td>'.$dataTorneos[$i]['ganador'].'</td>';
+						echo '<td>'.$dataNoticias[$i]['idnoticias'].'</td>';
+						echo '<td>'.$dataNoticias[$i]['titular'].'</td>';
+						echo '<td>'.$dataNoticias[$i]['fecha'].'</td>';
+						echo '<td>'.$dataNoticias[$i]['autor'].'</td>';
 						echo '</tr>';
 					}
 				?>
