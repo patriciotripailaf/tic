@@ -40,6 +40,24 @@ class noticiasController extends CI_Controller{
 		$this->load->view('menu_abajo');
 	}
 
+	function getNoticia($id){
+		$data = null;
+		$this->load->model('info');
+		$resultado = $this->info->get_noticia($id);
+		if($resultado != null){
+			$i=0;
+			foreach ($resultado as $row) {
+				$torneos[$i]['titular'] = $row->titular;
+				$torneos[$i]['fecha'] = $row->fecha;
+				$i++;
+			}
+		}
+			$data['dataNoticias'] = $torneos;
+		$this->load->view('menu');
+		$this->load->view('show_noticia',$data);
+		$this->load->view('menu_abajo');
+	}
+
 	function nuevaNoticia(){
 		$data = null;
 		$titulo = $_POST['titulo'];

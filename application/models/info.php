@@ -40,6 +40,18 @@
         }
     }
 
+    function get_noticia($id){
+        
+        $sql = "SELECT * FROM `noticia` WHERE `noticia`.`idnoticia` = ".$id;
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
     function eliminarNoticia($idNoticia){
         
         $sql = "DELETE FROM `noticia` WHERE `noticia`.`idnoticia` = ".$idNoticia;

@@ -19,14 +19,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<th>Fecha</th>
 				<th>Dirección</th>
 				<?php
-					for($i=0;$i<count($dataNoticias);$i++){
+
 						echo '<tr>';
-						echo '<td>'.anchor('noticiasController/getNoticia/'.$dataNoticias[$i]['idnoticias'], $dataNoticias[$i]['idnoticias']).'</td>';
-						echo '<td>'.$dataNoticias[$i]['titular'].'</td>';
-						echo '<td>'.$dataNoticias[$i]['fecha'].'</td>';
-						echo '<td>'.$dataNoticias[$i]['autor'].'</td>';
+						echo '<td>'.$dataNoticias[0]['titular'].'</td>';
+						echo '<td>'.$dataNoticias[0]['fecha'].'</td>';
 						echo '</tr>';
-					}
+
 				?>
 			</table>
 		<?php	
