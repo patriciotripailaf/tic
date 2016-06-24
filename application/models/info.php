@@ -28,6 +28,18 @@
         $qry = $this->db->query($sql);
     }
 
+    function noticias(){
+        
+        $sql = "SELECT * FROM `noticia`";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
     function eliminarNoticia($idNoticia){
         
         $sql = "DELETE FROM `noticia` WHERE `noticia`.`idnoticia` = ".$idNoticia;
