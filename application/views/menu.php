@@ -18,14 +18,14 @@
         <link href="<?php echo base_url(); ?>light/assets/plugins/fullcalendar/dist/fullcalendar.css" rel="stylesheet" />
 
         <!-- App CSS -->
-        <link href="/light/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="light/assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="tic/light/light/assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="http://localhost/tic/light/assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>/light/assets/css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url("light/assets/css/responsive.css"); ?>" rel="stylesheet" type="text/css" />
-        <link rel = "stylesheet" type = "text/css" 
-         href = "<?php echo base_url('/light/assets/css/core.cs'); ?>"> 
+        <link href="<?php echo base_url(); ?>light/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>light/assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>light/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>light/assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>light/assets/css/menu.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>light/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>light/assets/css/core.css" rel = "stylesheet" type = "text/css"> 
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="<?php echo base_url(); ?>light/assets/js/modernizr.min.js"></script>
+        <script src="<?php echo base_url(); ?>/light/assets/js/modernizr.min.js"></script>
 
     </head>
 
@@ -462,10 +462,10 @@
         </script>
 
         <!-- jQuery  -->
-        <script src="<?php echo base_url(); ?>application/light/assets/js/jquery.min.js"></script>
-        <script src="<?php echo base_url(); ?>/light/assets/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>/light/assets/js/detect.js"></script>
-        <script src="<?php echo base_url(); ?>/light/assets/js/fastclick.js"></script>
+        <script src="<?php echo base_url(); ?>light/assets/js/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>light/assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>light/assets/js/detect.js"></script>
+        <script src="<?php echo base_url(); ?>light/assets/js/fastclick.js"></script>
         <script src="<?php echo base_url(); ?>light/assets/js/jquery.slimscroll.js"></script>
         <script src="<?php echo base_url(); ?>light/assets/js/jquery.blockUI.js"></script>
         <script src="<?php echo base_url(); ?>light/assets/js/waves.js"></script>
