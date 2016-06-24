@@ -5,6 +5,7 @@ class info_torneos extends CI_Controller{
        {
         parent::__construct();
         $this->load->helper('form');
+        $this->load->helper('url');
 		//$this->load->database();
 		//$this->load->scaffolding('usuarios');
 	}
