@@ -23,7 +23,9 @@ class tournamentController extends CI_Controller{
 				$i++;
 			}
 			$data['dataTorneos'] = $torneos;
+			$this->load->view('menu');
 			$this->load->view('tournament_info',$data);
+			$this->load->view('menu_abajo');
 		} else {
 			$data['dataTorneos'] = '';
 			$this->load->view('tournament_info',$data);
