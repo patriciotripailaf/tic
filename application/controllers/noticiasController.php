@@ -35,18 +35,18 @@ class noticiasController extends CI_Controller{
 
 	function crearNoticia(){
 		$data = null;
+		$this->load->view('menu');
 		$this->load->view('noticia_form',$data);
+		$this->load->view('menu_abajo');
 	}
 
-	function nuevoTorneo(){
+	function nuevaNoticia(){
 		$data = null;
-		$nombre = $_POST['nombre'];
-		$fecha = $_POST['fecha'];
-		$direccion = $_POST['direccion'];
-		$ganador = $_POST['ganador'];
+		$titulo = $_POST['titulo'];
+		$contenido = $_POST['contenido'];
 		$this->load->model('info');
-		$resultado = $this->info->crearTorneo($nombre, $fecha, $direccion, $ganador);
-		$this->load->view('tournament_created',$data);
+		$resultado = $this->info->crearNoticia($titulo, $contenido);
+		cargarNoticias();
 	}
 
 

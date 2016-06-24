@@ -99,6 +99,16 @@
         
         $this->db->insert('torneo', $data);
     }
+
+    function crearNoticia($titulo,$contenido){
+        
+        $data = array(
+            'titular' => $titulo,
+            'fecha' => date("Y-m-d"),
+            'autor_idsocio' => 42 );
+        
+        $this->db->insert('noticia', $data);
+    }
     
     function userAdmin($usuario){
         

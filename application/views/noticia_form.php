@@ -10,17 +10,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 </head>
 <body>
-<h1>Complete el formulario con la información del torneo</h1><br>
+<h1>Complete el formulario para agregar la noticia</h1><br>
 <?php	
-		echo form_open('tournamentController/nuevoTorneo')."<br>";
-		echo form_label('Nombre:', 'nombre')."<br>";
-		echo form_input('nombre')."<br>";
-		echo form_label('Fecha:', 'fecha')."<br>";
-		echo '<input type="date" name="fecha" /> <br>';
-		echo form_label('Dirección:', 'direccion')."<br>";
-		echo form_input('direccion')."<br>";
-		echo form_label('Ganador:', 'ganador')."<br>";
-		echo form_input('ganador')."<br>";
+		echo form_open('noticiasController/nuevaNoticia')."<br>";
+		echo form_label('Titulo:', 'titulo')."<br>";
+		echo form_input('titulo')."<br>";
+		echo form_label('Contenido:', 'contenido')."<br>";
+		echo form_input('contenido')."<br>";
 		echo "<br>";
 		echo form_submit('enviar', 'Crear');
 		echo form_close();
