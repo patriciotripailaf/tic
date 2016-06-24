@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</table>
 		<?php	
 		echo "<br>";
-		echo anchor('tournamentController/crearTorneo', 'Crear Torneo');
+		echo anchor('noticasController/crearNoticia', 'Crear noticia');
 
 		?>
 		</div>
