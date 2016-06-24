@@ -30,11 +30,12 @@ class noticiasController extends CI_Controller{
 			$data['dataNoticias'] = '';
 			$this->load->view('tournament_info',$data);
 		}
+		$this->load->view('menu_abajo');
 	}
 
-	function crearTorneo(){
+	function crearNoticia(){
 		$data = null;
-		$this->load->view('tournament_form',$data);
+		$this->load->view('noticia_form',$data);
 	}
 
 	function nuevoTorneo(){
