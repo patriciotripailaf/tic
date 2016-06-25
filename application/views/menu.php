@@ -159,12 +159,18 @@
                             </li>
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-chart"></i><span> usuarios </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-list"></i> <span> Socios </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="<?php echo site_url('noticiasController/cargarNoticias'); ?>">Socios</a></li>
-                                    <li><a href="chart-morris.html">Morris Chart</a></li>
-                                    <li><a href="chart-chartist.html">Chartist Charts</a></li>
-                                    <li><a href="chart-other.html">Other Chart</a></li>
+                                    <li><a href="<?php echo site_url('sociosController/cargarSocios'); ?>">ver Socios</a></li>
+                                    <li><a href="<?php echo site_url('sociosController/crearSocio'); ?>">crear Socio</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-chart"></i><span> Usuarios </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="<?php echo site_url('jugadorController/cargarJugadores'); ?>">ver Jugadores</a></li>
                                 </ul>
                             </li>
 
