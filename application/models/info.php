@@ -69,7 +69,7 @@
             'jugador_idjugador' => $idjugador ,
             'noticia_idnoticia' => $idnoticia ,
             'comentario' => $comentario ,
-            'fecha_comentario' => dateTime("Y-m-d H:i:s")
+            'fecha_comentario' => date("Y-m-d H:i:s")
             );
         
         $this->db->insert('comentarios', $data);
@@ -313,8 +313,8 @@
             'rut' => $rut,
             'sexo' => $sexo,
             'email' => $correo,
-            'fecha_registro' => dateTime("Y-m-d H:i:s"),
-            'ultimo_ingreso' => dateTime("Y-m-d H:i:s"),
+            'fecha_registro' => date("Y-m-d H:i:s"),
+            'ultimo_ingreso' => date("Y-m-d H:i:s"),
             'status' => "activo");
         
         $this->db->insert('jugador', $data);
