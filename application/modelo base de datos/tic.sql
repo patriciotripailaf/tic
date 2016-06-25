@@ -40,7 +40,7 @@ ENGINE = InnoDB;
 -- Table `tic`.`socio`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tic`.`socio` (
-  `idsocio` INT NOT NULL,
+  `idsocio` INT NOT NULL AUTO_INCREMENT,
   `fecha_inscripcion` DATE NULL,
   `tipo` VARCHAR(45) NULL,
   `posicion` INT NULL,
@@ -76,6 +76,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tic`.`noticia` (
   `idnoticia` INT NOT NULL,
   `titular` VARCHAR(45) NULL,
+  `contenido` VARCHAR(1000) NULL,
   `fecha` DATE NULL,
   `autor_idsocio` INT NOT NULL,
   PRIMARY KEY (`idnoticia`),
@@ -201,16 +202,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `tic`;
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (71, 'Noticia1', '2015-01-10', 41);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (72, 'Noticia2', '2015-02-10', 44);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (73, 'Noticia3', '2015-03-10', 42);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (74, 'Noticia4', '2015-04-10', 42);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (75, 'Noticia5', '2015-05-10', 45);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (76, 'Noticia6', '2015-06-10', 41);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (77, 'Noticia7', '2015-07-10', 41);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (78, 'Noticia8', '2015-08-10', 48);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (79, 'Noticia0', '2015-09-10', 49);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `fecha`, `autor_idsocio`) VALUES (80, 'Noticia10', '2015-10-10', 50);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (71, 'Noticia1', 'contenido1', '2015-01-10', 41);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (72, 'Noticia2', 'contenido2', '2015-02-10', 44);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (73, 'Noticia3', 'contenido3', '2015-03-10', 42);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (74, 'Noticia4', 'contenido4', '2015-04-10', 42);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (75, 'Noticia5', 'contenido5', '2015-05-10', 45);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (76, 'Noticia6', 'contenido6', '2015-06-10', 41);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (77, 'Noticia7', 'contenido7', '2015-07-10', 41);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (78, 'Noticia8', 'contenido8', '2015-08-10', 48);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (79, 'Noticia0', 'contenido9', '2015-09-10', 49);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (80, 'Noticia10', 'contenido10', '2015-10-10', 50);
 
 COMMIT;
 

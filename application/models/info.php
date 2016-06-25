@@ -58,12 +58,6 @@
         $qry = $this->db->query($sql);
     }
 
-    function eliminarSocio($idSocio){
-        
-        $sql = "DELETE FROM `socio` WHERE `socio`.`idsocio` = ".$idSocio;
-        $qry = $this->db->query($sql);
-    }
-
     function numeroTorneosJugador($idJugador){
         
         $sql = "SELECT COUNT(*) FROM `jugador_has_torneo` WHERE jugador_idjugador=".$idJugador;
@@ -171,6 +165,56 @@
         }
     }
 
+    function socios(){
+        
+        $sql = "SELECT * FROM `socio`";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
+    function crearSocio($tipo, $posicion, $administrador, $cuotas_pagadas, $jugador_idjugador){
+        $date = date('Y-m-d');
+        $data = array(
+            'idsocio' => null,
+            'fecha_inscripcion' => $date ,
+            'tipo' => $tipo ,
+            'posicion' => $posicion ,
+            'administrador' => $administrador,
+            'cuotas_pagadas' => $cuotas_pagadas ,
+            'jugador_idjugador' => $jugador_idjugador);
+        
+        $this->db->insert('socio', $data);
+    }
+
+    function get_socio($id){
+        
+        $sql = "SELECT * FROM `socio` WHERE `socio`.`idsocio` = ".$id;
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
+    function actualizarSocio($idSocio, $tipo, $posicion, $administrador, $cuotas_pagadas){
+        
+        $sql = "UPDATE socio SET tipo='".$tipo."', posicion='".$posicion."', administrador='".$administrador."', cuotas_pagadas='".$cuotas_pagadas."' WHERE idsocio=".$idSocio;
+        $qry = $this->db->query($sql);
+    }
+
+    function eliminarSocio($idSocio){
+        
+        $sql = "DELETE FROM `socio` WHERE `socio`.`idsocio` = ".$idSocio;
+        $qry = $this->db->query($sql);
+    }
+
     function jugadores(){
         
         $sql = "SELECT * FROM `jugador`";
@@ -185,7 +229,13 @@
 
     function banearJugador($idJugador){
         
-        $sql = "UPDATE torneo SET nombre_torneo='".$nombre."', fecha_torneo='".$fecha."', direccion='".$direccion."', ganador='".$ganador."' WHERE idtorneo=".$idTorneo;
+        $sql = "UPDATE jugador SET status='baneado' WHERE idjugador=".$idJugador;
+        $qry = $this->db->query($sql);
+    }
+
+    function activarJugador($idJugador){
+        
+        $sql = "UPDATE jugador SET status='activo' WHERE idjugador=".$idJugador;
         $qry = $this->db->query($sql);
     }
 

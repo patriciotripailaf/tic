@@ -46,5 +46,12 @@ class jugadorController extends CI_Controller{
 		$this->info->banearJugador($idJugador);
 		redirect('jugadorController/cargarJugadores', 'refresh');
 	}
+
+	function activarJugador($idJugador){
+		$data = null;
+		$this->load->model('info');
+		$this->info->activarJugador($idJugador);
+		redirect('jugadorController/cargarJugadores', 'refresh');
+	}
 }
 ?>
