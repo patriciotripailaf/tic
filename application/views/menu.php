@@ -139,10 +139,8 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-invert-colors"></i> <span> Torneos </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><?php anchor('tournamentController/cargarTorneos.php', 'Torneos') ;?> </li>
-                                    <li><a href="tournamentController/cargarTorneos.php">Cards</a> <?php anchor('tournamentController/cargarTorneos.php', 'Torneos') ;?></li>
-                                    <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
-                                    <li><a href="ui-material-icons.html">Material Design Icons</a></li>
+                                    <li><a href="<?php echo site_url('tournamentController/cargarTorneos'); ?>">ver Torneos</a> </li>
+                                    <li><a href="<?php echo site_url('tournamentController/crearTorneo'); ?>">crear Torneo</a> </li>
 
                                 </ul>
                             </li>
@@ -150,7 +148,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-list"></i> <span> Noticias </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                	<li><?php anchor('noticiasController/crearNoticia', 'Crear noticia') ;?></li>
+                                	<li><a href="<?php echo site_url('noticiasController/cargarNoticias'); ?>">ver Torneos</a></li>
                                     <li><?php anchor('noticiasController/cargarNoticia', 'Cargar noticia') ;?></li>
                                     <li><a href="tables-editable.html">nada aun</a></li>
                                 </ul>
