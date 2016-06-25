@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </ul>
                                     </div>
 
-                        			<h4 class="header-title m-t-0 m-b-30">Input Types</h4>
+                        			<h4 class="header-title m-t-0 m-b-30">Noticias</h4>
 
                         			<div class="row">
                         				<div class="col-lg-6">
@@ -58,34 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         		</div>
 
 
-	<div>
-		<h1>Información de los Torneos</h1>
 
-		<div>
-			<table>
-				<th>Id de Torneo</th>
-				<th>Nombre</th>
-				<th>Fecha</th>
-				<th>Dirección</th>
-				<?php
-					for($i=0;$i<count($dataNoticias);$i++){
-						echo '<tr>';
-						echo '<td>'.anchor('noticiasController/getNoticia/'.$dataNoticias[$i]['idnoticias'], $dataNoticias[$i]['idnoticias']).'</td>';
-						echo '<td>'.$dataNoticias[$i]['titular'].'</td>';
-						echo '<td>'.$dataNoticias[$i]['fecha'].'</td>';
-						echo '<td>'.$dataNoticias[$i]['autor'].'</td>';
-						echo '</tr>';
-					}
-				?>
-			</table>
-			<a class="twitter-timeline" data-width="220" data-height="200" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-		<?php	
-		echo "<br>";
-		echo anchor('noticiasController/crearNoticia', 'Crear noticia');
-
-		?>
-		</div>
-	</div>
 
 	
 </body>

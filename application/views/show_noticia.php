@@ -9,30 +9,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Torneos</title>
 </head>
 <body>
-	<div>
-		<h1>Información de los Torneos</h1>
+	<div class="row">
+	<div class="card-box"	>
+		<?php
 
-		<div>
-			<table>
-				<th>Id de Torneo</th>
-				<th>Nombre</th>
-				<th>Fecha</th>
-				<th>Dirección</th>
-				<?php
+		echo '<h1>'.$dataNoticias[0]['titular'].'</h1>';
 
-						echo '<tr>';
-						echo '<td>'.$dataNoticias[0]['titular'].'</td>';
-						echo '<td>'.$dataNoticias[0]['fecha'].'</td>';
-						echo '</tr>';
-
-				?>
-			</table>
-		<?php	
-		echo "<br>";
-		
+		echo $dataNoticias[0]['contenido'];
 
 		?>
-		</div>
+	</div>
+	</div>
+	<div class="col-lg-6">
+	<div class="card-box"	>
+		<h1> Comentarios</h1>
+			<table class="table table-striped table-bordered dt-responsive nowrap">
+                        					<thead>
+
+				<th>Usuario</th>
+				<th>Comentario</th>
+				<th>Fecha</th>
+				</thead>
+				<tbody>
+				<?php
+
+					for($i=0;$i<count($comentario);$i++){
+						echo '<tr>';
+						echo '<td>'.$comentario[$i]['usuario'].'</td>';
+						echo '<td>'.$comentario[$i]['comentario'].'</td>';
+						echo '<td>'.$comentario[$i]['fecha'].'</td>';
+						echo '</tr>';
+					}
+				?>
+				</tbody>
+			</table>
+	</div>
 	</div>
 </body>
 </html>

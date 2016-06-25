@@ -42,7 +42,7 @@
 
     function get_noticia($id){
         
-        $sql = "SELECT * FROM `noticia` WHERE `noticia`.`idnoticia` = ".$id;
+        $sql = "SELECT * FROM `noticia` WHERE `noticia`.`idnoticia` =".$id;
         $qry = $this->db->query($sql);
         if($qry->num_rows() > 0){
             return $qry->result();
@@ -50,6 +50,29 @@
         else{
             return null;
         }
+    }
+
+    function getComentarios($id){
+        $sql = "SELECT fecha_comentario,comentario,nombre_jugador,apellido,usuario FROM `noticia` JOIN comentarios ON noticia_idnoticia = idnoticia JOIN jugador ON jugador_idjugador=idjugador WHERE `noticia`.`idnoticia` =".$id;
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
+    function crearComentario($idnoticia,$comentario,$idjugador){
+        
+        $data = array(
+            'jugador_idjugador' => $idjugador ,
+            'noticia_idnoticia' => $idnoticia ,
+            'comentario' => $comentario ,
+            'fecha_comentario' => dateTime("Y-m-d H:i:s")
+            );
+        
+        $this->db->insert('comentarios', $data);
     }
 
     function eliminarNoticia($idNoticia){

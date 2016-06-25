@@ -49,16 +49,40 @@ class noticiasController extends CI_Controller{
 			foreach ($resultado as $row) {
 				$torneos[$i]['titular'] = $row->titular;
 				$torneos[$i]['fecha'] = $row->fecha;
+				$torneos[$i]['contenido'] = $row->contenido;
 				$i++;
 			}
 		}
+		$resultado2 = $this->info->getComentarios($id);
+		if($resultado2 != null){
+			$i=0;
+			foreach ($resultado2 as $row) {
+				$comentarios[$i]['fecha'] = $row->fecha_comentario;
+				$comentarios[$i]['comentario'] = $row->comentario;
+				$comentarios[$i]['usuario'] = $row->usuario;
+				$i++;
+			}
+		}
+		else {
+			$comentarios=null;
+		}
 			$data['dataNoticias'] = $torneos;
+			$data['comentario'] = $comentarios;
 		$this->load->view('menu');
 		$this->load->view('show_noticia',$data);
 		$this->load->view('menu_abajo');
 	}
 
 	function nuevaNoticia(){
+		$data = null;
+		$titulo = $_POST['titulo'];
+		$contenido = $_POST['contenido'];
+		$this->load->model('info');
+		$resultado = $this->info->crearNoticia($titulo, $contenido);
+		cargarNoticias();
+	}
+
+	function nuevoComentario(){
 		$data = null;
 		$titulo = $_POST['titulo'];
 		$contenido = $_POST['contenido'];
