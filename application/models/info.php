@@ -310,11 +310,12 @@
             'rut' => $rut,
             'sexo' => $sexo,
             'email' => $correo,
-            'fecha_registro' => date(),
-            'ultimo_ingreso' => date(), 
+            'fecha_registro' => date('Y-m-d H:i:s'),
+            'ultimo_ingreso' => date('Y-m-d H:i:s'), 
             'status' => "activo");
         
         $this->db->insert('jugador', $data);
+        return $this->db->insert_id();
     }
 }
 ?>
