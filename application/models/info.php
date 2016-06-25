@@ -146,12 +146,13 @@
         $this->db->insert('noticia', $data);
     }
     
-    function userAdmin($usuario){
+    function userAdmin($usuario,$password){
         
-        $sql = "SELECT administrador FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '".$usuario."'";
+        $sql = "SELECT administrador FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '$usuario' AND password = '$password'";
         $qry = $this->db->query($sql);
-        if($qry->num_rows() > 0){
-            return $qry->result();
+        $resultado = $qry->row_array();
+        if($resultado!=null){
+            return $resultado;
         }
         else{
             return null;
@@ -169,5 +170,7 @@
             return null;
         }
     }
+
+
 }
 ?>

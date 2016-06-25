@@ -13,48 +13,46 @@ class control_login extends CI_Controller{
 	function index(){
 		$data = $this->session->all_userdata();
 		
-	// 	if($this->session->userdata('tipo') != FALSE){
-	// 		if($data['tipo']=='cliente'){
-	// 			$this->load->view('login_cliente_view',$data);
-	// 		}else if($data['tipo']=='proveedor'){
-	// 			$this->load->view('login_proveedor_view',$data);
-	// 		}
-	// 	}else
+		if($this->session->userdata('administrador') != FALSE){
+			if($data['administrador']==0){
+				$this->load->view('admin_view',$data);
+			}else{
+				$this->load->view('normal_view',$data);
+			}
+		}else{
 		$this->load->view('login_usuario');
-		
-	// }
+		}
+	}
 	
-	// function chequea_login(){
-	// 	$user = $_POST['username'];
-	// 	$pass = $_POST['password'];
+	function chequea_login(){
+		$user = $_POST['username'];
+		$pass = $_POST['password'];
 		
-	// 	$this->load->model('ingreso');
-	// 	$resultado = $this->ingreso->verificar($user,$pass);
+		$this->load->model('info');
+		$resultado = $this->info->userAdmin($user,$pass);
 
-	// 	if($resultado != null){
-	// 		$data = array(
- //                   'nombre' => $resultado['nombre'],
- //                   'apellido' => $resultado['apellido'],
-	// 			   'tipo' => $resultado['nombre_tipo'],
- //                   'logged_in' => TRUE,
-	// 			   'idusuarios' => $resultado['idusuarios']);
+		if($resultado != null){
+			$data = array(
+                   'administrador' => $resultado['administrador']);
 				   
-	// 		$this->session->set_userdata($data);
+			$this->session->set_userdata($data);
 			
-	// 		if($data['tipo']=='cliente')
-	// 			$this->load->view('login_cliente_view',$data);
-	// 		else if($data['tipo']=='proveedor')
-	// 			$this->load->view('login_proveedor_view',$data);
-	// 	}
-	// 	else{
-	// 		$data['usuario'] = $user;
-	// 		$this->load->view('login_fallido_view',$data);
-	// 	}
-	// }
+			if($data['administrador']== 1){
+				$this->load->view('admin_view',$data);
+			}
+			else{
+				$this->load->view('normal_view',$data);
+			}
+		}
+		else{
+			$data['usuario'] = $user;
+			$this->load->view('login_fallido',$data);
+		}
+	}
 	
-	// function salir(){
-	// 	$this->session->sess_destroy();
-	// 	$this->load->view('login_view');
-	// }
+	function salir(){
+		$this->session->sess_destroy();
+		$this->load->view('login_usuario');
+	}
 }
 ?>
