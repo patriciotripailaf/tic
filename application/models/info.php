@@ -297,6 +297,9 @@
         else{
             return null;
         }
+        $sql = "UPDATE jugador SET ultimo_ingreso=".date('Y-m-d H:i:s')."WHERE idjugador=".$idJugador;
+        $qry = $this->db->query($sql);
+
     }
 
     function ingresar($user,$pass,$name,$surn,$rut,$sexo,$correo){
@@ -309,11 +312,12 @@
             'rut' => $rut,
             'sexo' => $sexo,
             'email' => $correo,
-            'fecha_registro' => date(),
-            'ultimo_ingreso' => date(), 
+            'fecha_registro' => date('Y-m-d H:i:s'),
+            'ultimo_ingreso' => date('Y-m-d H:i:s'), 
             'status' => "activo");
         
         $this->db->insert('jugador', $data);
+        return $this->db->insert_id();
     }
 }
 ?>
