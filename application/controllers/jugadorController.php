@@ -39,5 +39,12 @@ class jugadorController extends CI_Controller{
 			$this->load->view('menu_abajo');
 		}
 	}
+
+	function banJugador($idJugador){
+		$data = null;
+		$this->load->model('info');
+		$this->info->banearJugador($idJugador);
+		redirect('jugadorController/cargarJugadores', 'refresh');
+	}
 }
 ?>

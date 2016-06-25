@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<td>'.$dataJugadores[$i]['ultimoIngreso'].'</td>';
 						echo '<td>'.$dataJugadores[$i]['estado'].'</td>';
 						echo '<td>';
-						echo anchor('jugadorController/banearJugador/'.$dataJugadores[$i]['estado'], 'banear');
+						echo anchor('jugadorController/banearJugador/'.$dataJugadores[$i]['idJugador'], 'banear');
 						echo '</td>';
 						echo '</tr>';
 					}

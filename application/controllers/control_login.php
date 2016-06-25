@@ -33,10 +33,18 @@ class control_login extends CI_Controller{
 		$resultadoAdmin = $this->info->userAdmin($user);
 
 		if($resultado != null){
-			$data = array(
-                   'administrador' => $resultadoAdmin['administrador'],
+			if($resultadoAdmin != null){
+				
+				$data = array(
 					'status' => $resultado['status'],
-					'usuario' => $resultado['usuario']);
+					'usuario' => $resultado['usuario'],
+					'administrador' => $resultadoAdmin['administrador']);
+			}else{
+				$data = array(
+					'status' => $resultado['status'],
+					'usuario' => $resultado['usuario'],
+					'administrador' => 0);
+			}
 				   
 			$this->session->set_userdata($data);
 			

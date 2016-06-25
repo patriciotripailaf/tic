@@ -150,8 +150,9 @@
         
         $sql = "SELECT administrador FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '".$usuario."'";
         $qry = $this->db->query($sql);
-        if($qry->num_rows() > 0){
-            return $qry->result();
+        $resultado = $qry->row_array();
+        if($resultado!=null){
+            return $resultado;
         }
         else{
             return null;
@@ -180,6 +181,12 @@
         else{
             return null;
         }
+    }
+
+    function banearJugador($idJugador){
+        
+        $sql = "UPDATE torneo SET nombre_torneo='".$nombre."', fecha_torneo='".$fecha."', direccion='".$direccion."', ganador='".$ganador."' WHERE idtorneo=".$idTorneo;
+        $qry = $this->db->query($sql);
     }
 
     function userLogin($usuario,$password){
