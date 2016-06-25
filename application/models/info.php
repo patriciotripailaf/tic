@@ -181,5 +181,33 @@
             return null;
         }
     }
+
+    function userLogin($usuario,$password){
+        
+        $sql = "SELECT administrador,status,usuario FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '".$usuario."' AND password = '".$password."'";
+        $qry = $this->db->query($sql);
+        $resultado = $qry->row_array();
+        if($resultado!=null){
+            return $resultado;
+        }
+        else{
+            return null;
+        }
+    }
+
+    function ingresar($user,$pass,$name,$surn,$rut,$sexo,$correo){
+        
+        $data = array(
+            'usuario' => $user ,
+            'password' => $pass ,
+            'nombre_jugador' => $name ,
+            'apellido' => $surn,
+            'rut' => $rut,
+            'sexo' => $sexo,
+            'email' => $correo, 
+            'status' => "activo");
+        
+        $this->db->insert('jugador', $data);
+    }
 }
 ?>

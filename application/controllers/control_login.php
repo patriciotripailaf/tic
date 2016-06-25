@@ -29,7 +29,7 @@ class control_login extends CI_Controller{
 		$pass = $_POST['password'];
 		
 		$this->load->model('info');
-		$resultado = $this->info->userAdmin($user,$pass);
+		$resultado = $this->info->userLogin($user,$pass);
 
 		if($resultado != null){
 			$data = array(
