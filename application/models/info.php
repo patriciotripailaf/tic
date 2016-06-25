@@ -169,5 +169,17 @@
             return null;
         }
     }
+
+    function jugadores(){
+        
+        $sql = "SELECT * FROM `jugador`";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
 }
 ?>

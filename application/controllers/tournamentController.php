@@ -88,9 +88,7 @@ class tournamentController extends CI_Controller{
 		$data = null;
 		$this->load->model('info');
 		$this->info->eliminarTorneo($idTorneo);
-		$this->load->view('menu');
-		$this->load->view('tournament_info',$data);
-		$this->load->view('menu_abajo');
+		redirect('tournamentController/cargarTorneos', 'refresh');
 	}
 }
 ?>

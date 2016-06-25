@@ -15,6 +15,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo anchor('tournamentController/cargarTorneos','Cargar Torneos');
 		echo "<br>";
 		echo anchor('noticiasController/cargarNoticias','Cargar Noticias');
+		echo "<br>";
+		echo anchor('jugadorController/cargarJugadores','Cargar Jugadores');
 
 ?>
 </body>
