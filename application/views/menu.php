@@ -152,9 +152,9 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-view-list"></i> <span> Noticias </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                	<li><a href="<?php echo site_url('noticiasController/cargarNoticias'); ?>">ver Torneos</a></li>
-                                    <li><?php anchor('noticiasController/cargarNoticia', 'Cargar noticia') ;?></li>
-                                    <li><a href="tables-editable.html">nada aun</a></li>
+                                	<li><a href="<?php echo site_url('noticiasController/cargarNoticias'); ?>">ver Noticias</a></li>
+                                    <li><a href="<?php echo site_url('noticiasController/crearNoticia'); ?>">crear Noticias</a></li>
+
                                 </ul>
                             </li>
 

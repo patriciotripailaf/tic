@@ -32,20 +32,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         				<div class="col-lg-6">
                         					<table id="datatable" class="table table-striped table-bordered dt-responsive nowrap">
                         					<thead>
-				<th>Id de Torneo</th>
+
 				<th>Nombre</th>
 				<th>Fecha</th>
-				<th>Dirección</th>
 				</thead>
 				<tbody>
 
 				<?php
 					for($i=0;$i<count($dataNoticias);$i++){
 						echo '<tr>';
-						echo '<td>'.anchor('noticiasController/getNoticia/'.$dataNoticias[$i]['idnoticias'], $dataNoticias[$i]['idnoticias']).'</td>';
-						echo '<td>'.$dataNoticias[$i]['titular'].'</td>';
+						echo '<td>'.anchor('noticiasController/getNoticia/'.$dataNoticias[$i]['idnoticias'],$dataNoticias[$i]['titular']).'</td>';
 						echo '<td>'.$dataNoticias[$i]['fecha'].'</td>';
-						echo '<td>'.$dataNoticias[$i]['autor'].'</td>';
 						echo '</tr>';
 					}
 				?>
