@@ -9,6 +9,8 @@ class noticiasController extends CI_Controller{
 		$this->load->helper('html');
 		$this->load->helper('url');
 		$this->load->helper('form');
+		$this->load->helper('permisos');
+
 		}
 
 	function cargarNoticias(){
@@ -34,6 +36,7 @@ class noticiasController extends CI_Controller{
 	}
 
 	function crearNoticia(){
+		permiso(1);
 		$data = null;
 		$this->load->view('menu');
 		$this->load->view('noticia_form',$data);
@@ -41,6 +44,7 @@ class noticiasController extends CI_Controller{
 	}
 
 	function getNoticia($id){
+		permiso(0);
 		$data = null;
 		$this->load->model('info');
 		$resultado = $this->info->get_noticia($id);
@@ -75,6 +79,7 @@ class noticiasController extends CI_Controller{
 	}
 
 	function nuevaNoticia(){
+		permiso(0);
 		$data = null;
 		$titulo = $_POST['titulo'];
 		$contenido = $_POST['contenido'];
@@ -84,6 +89,7 @@ class noticiasController extends CI_Controller{
 	}
 
 	function nuevoComentario($idNoticia){
+		permiso(0);
 		$data = null;
 		$comentario = $_POST['comentario'];
 		$this->load->model('info');

@@ -5,11 +5,14 @@ class sociosController extends CI_Controller{
        {
         parent::__construct();
 		$this->load->database();
+		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->helper('url');
+		$this->load->helper('permisos');
 		}
 
 	function cargarSocios(){
+		permiso(0);
 		$this->load->model('info');
 		$resultado = $this->info->socios();
 		if($resultado != null){
@@ -37,6 +40,7 @@ class sociosController extends CI_Controller{
 	}
 
 	function crearSocio(){
+		permiso(1);
 		$this->load->model('info');
 		$resultado = $this->info->listaJugadoresSinSocio();
 		if($resultado != null){
@@ -57,6 +61,7 @@ class sociosController extends CI_Controller{
 	}
 
 	function nuevoSocio(){
+		permiso(1);
 		$data = null;
 		$tipo = $_POST['tipo'];
 		$posicion = $_POST['posicion'];
@@ -69,6 +74,7 @@ class sociosController extends CI_Controller{
 	}
 
 	function editarSocioForm($idSocio){
+		permiso(1);
 		$this->load->model('info');
 		$resultado = $this->info->get_socio($idSocio);
 		$resultado2 = $this->info->listaJugadoresSinSocio();
@@ -96,6 +102,7 @@ class sociosController extends CI_Controller{
 		}
 	}
 	function editarSocio($idSocio){
+		permiso(1);
 		$data = null;
 		$tipo = $_POST['tipo'];
 		$posicion = $_POST['posicion'];
@@ -107,6 +114,7 @@ class sociosController extends CI_Controller{
 	}
 
 	function borrarSocio($idSocio){
+		permiso(1);
 		$data = null;
 		$this->load->model('info');
 		$this->info->eliminarSocio($idSocio);

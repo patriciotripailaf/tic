@@ -1,5 +1,5 @@
 <?php
-class AcessosController extends CI_Controller{
+class AccesosController extends CI_Controller{
 	
 	public function __construct()
        {
@@ -11,76 +11,10 @@ class AcessosController extends CI_Controller{
 	}
 	
 	function index(){
-		$data = $this->session->all_userdata();
-		
-		if($this->session->userdata('administrador') != FALSE){
-			if($data['administrador']==1){
-				
-				$this->load->view('menu');
-				$this->load->view('admin_view',$data);
-				$this->load->view('menu_abajo');
-			}else{
-				$this->load->view('menu');
-				$this->load->view('normal_view',$data);
-				$this->load->view('menu_abajo');
-			}
-		}else{
-		$this->load->view('login_usuario');
-		}
-	}
-	
-	function chequea_login(){
-		$user = $_POST['username'];
-		$pass = $_POST['password'];
-		
-		$this->load->model('info');
-		$resultado = $this->info->userLogin($user,$pass);
-		$resultadoAdmin = $this->info->userAdmin($user);
 
-		if($resultado != null){
-			if($resultadoAdmin != null){
-				
-				$data = array(
-					'status' => $resultado['status'],
-					'usuario' => $resultado['usuario'],
-					'logeado' => 1,
-					'administrador' => $resultadoAdmin['administrador']);
-			}else{
-				$data = array(
-					'status' => $resultado['status'],
-					'usuario' => $resultado['usuario'],
-					'logeado' => 1,
-					'id' => $resultado['idjugador'],
-					'administrador' => 0);
-			}
-				   
-			$this->session->set_userdata($data);
-			
-			if($data['administrador']== 1){
-				$this->load->view('menu_abajo');
-				$this->load->view('menu');
-				$this->load->view('admin_view',$data);
-			}
-			else{
-				if($data['status']== "baneado"){
-					$this->load->view('ban_view',$data);
-				}else
-					{
-					$this->load->view('menu_abajo');
-					$this->load->view('menu');
-					$this->load->view('normal_view',$data);
-				}
-			}
-		}
-		else{
-			$data['usuario'] = $user;
-			$this->load->view('login_fallido',$data);
-		}
+		$this->load->view('acceso_negado');
+		
 	}
 	
-	function salir(){
-		$this->session->sess_destroy();
-		$this->load->view('login_usuario');
-	}
 }
 ?>
