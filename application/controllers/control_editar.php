@@ -1,5 +1,5 @@
 <?php
-class control_registro extends CI_Controller{
+class control_editar extends CI_Controller{
 	
 	public function __construct()
        {
@@ -10,24 +10,21 @@ class control_registro extends CI_Controller{
 		$this->load->database();
 	}
 	
-	function registrar(){
-		$this->load->view('registro_usuario');
+	function editar(){
+		$this->load->view('editar_usuario');
 	}
 	
-	function nuevo_registro(){
-		$user = $_POST['username'];
-		$pass = $_POST['password'];
-		$name = $_POST['nombre'];
-		$surn = $_POST['apellido'];
-		$rut = $_POST['rut'];
-		$sexo = $_POST['sexo'];
-		$correo = $_POST['correo'];
+	// function nuevo_registro(){
+	// 	$user = $_POST['username'];
+	// 	$pass = $_POST['password'];
+	// 	$name = $_POST['nombre'];
+	// 	$surn = $_POST['apellido'];
 		
-		$this->load->model('info');
-		$resultado = $this->info->ingresar($user,$pass,$name,$surn,$rut,$sexo,$correo);
+	// 	$this->load->model('registrar');
+	// 	$resultado = $this->registrar->ingresar($user,$pass,$name,$surn);
 		
-		$this->load->view('registro_exitoso');
-	}
+	// 	$this->load->view('registro_exitoso_view');
+	// }
 	
 	// function producto(){
 	// 	$this->load->view('producto_view');

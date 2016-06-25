@@ -9,9 +9,9 @@
 	<h1>LOGIN</h1><hr>
 	<?php
 		echo form_open('control_login/chequea_login')."\n"; 
-			echo form_label('Usuario', 'usuario')."\n";
+			echo form_label('Usuario: ', 'usuario')."\n";
 			echo form_input('username')."\n";
-			echo form_label('Contraseña', 'pass')."\n";
+			echo form_label('Contraseña: ', 'pass')."\n";
 			echo form_password('password')."\n";
 			echo form_submit('enviar', 'Login');
 		echo form_close();

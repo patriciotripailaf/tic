@@ -6,10 +6,9 @@
 	<title>Login</title>
 </head>
 <body>
-	<h1>VISTA NORMAL</h1>Bienvenido: </h1><?php echo $usuario ?><hr>
+	<h1>LO SENTIMOS, USUARIO <?php echo $usuario." " ?>BANEADO!</h1><hr>
 	<?php 
 	echo anchor('control_login/salir', 'Salir')."<br>"; 
-	echo anchor('control_editar/editar', 'Editar Datos');
 	?>
 
 </body>

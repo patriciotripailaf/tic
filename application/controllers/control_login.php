@@ -14,7 +14,7 @@ class control_login extends CI_Controller{
 		$data = $this->session->all_userdata();
 		
 		if($this->session->userdata('administrador') != FALSE){
-			if($data['administrador']==0){
+			if($data['administrador']==1){
 				$this->load->view('admin_view',$data);
 			}else{
 				$this->load->view('normal_view',$data);
@@ -33,7 +33,9 @@ class control_login extends CI_Controller{
 
 		if($resultado != null){
 			$data = array(
-                   'administrador' => $resultado['administrador']);
+                   'administrador' => $resultado['administrador'],
+					'status' => $resultado['status'],
+					'usuario' => $resultado['usuario']);
 				   
 			$this->session->set_userdata($data);
 			
@@ -41,7 +43,12 @@ class control_login extends CI_Controller{
 				$this->load->view('admin_view',$data);
 			}
 			else{
-				$this->load->view('normal_view',$data);
+				if($data['status']== "baneado"){
+					$this->load->view('ban_view',$data);
+				}else
+					{
+					$this->load->view('normal_view',$data);
+				}
 			}
 		}
 		else{
