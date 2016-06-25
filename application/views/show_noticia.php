@@ -45,5 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</table>
 	</div>
 	</div>
+	<div class="col-lg-6">
+	<div class="card-box"	>
+		<h1> Form agregar Comentario</h1>
+		
+	</div>
+	</div>
+
 </body>
 </html>
