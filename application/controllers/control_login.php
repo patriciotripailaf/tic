@@ -42,11 +42,13 @@ class control_login extends CI_Controller{
 				$data = array(
 					'status' => $resultado['status'],
 					'usuario' => $resultado['usuario'],
+					'id' => $resultado['idjugador'],
 					'administrador' => $resultadoAdmin['administrador']);
 			}else{
 				$data = array(
 					'status' => $resultado['status'],
 					'usuario' => $resultado['usuario'],
+					'id' => $resultado['idjugador'],
 					'administrador' => 0);
 			}
 				   

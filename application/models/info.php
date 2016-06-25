@@ -288,7 +288,7 @@
 
     function userLogin($usuario,$password){
         
-        $sql = "SELECT status,usuario FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
+        $sql = "SELECT status,usuario,idjugador FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
         $qry = $this->db->query($sql);
         $resultado = $qry->row_array();
         if($resultado!=null){
