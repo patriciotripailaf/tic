@@ -293,7 +293,7 @@
         $resultado = $qry->row_array();
         if($resultado!=null){
             //actualizar ingreso 
-        $sql2 = "UPDATE jugador SET ultimo_ingreso=".dateTime("Y-m-d H:i:s")."WHERE usuario=".$usuario;
+        $sql2 = "UPDATE jugador SET ultimo_ingreso=".date("Y-m-d H:i:s")."WHERE usuario=".$usuario;
         $qry2 = $this->db->query($sql2);
             return $resultado;
         }
