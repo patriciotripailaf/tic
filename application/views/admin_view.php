@@ -7,6 +7,9 @@
 </head>
 <body>
 	<h1>VISTA ADMINISTRADOR</h1>Bienvenido: <?php echo $usuario ?><hr>
-	<?php echo anchor('control_login/salir', 'Salir') ?>
+	<?php 
+	echo anchor('control_login/salir', 'Salir')."<br>";
+	echo anchor('control_editar/editar', 'Editar Datos'); ?>
+
 </body>
 </html>
