@@ -8,23 +8,31 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <!-- App Favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>light/assets/images/favicon.ico">
 
         <!-- App title -->
         <title>Adminto - Responsive Admin Dashboard Template</title>
 
-        <!--calendar css-->
-        <link href="<?php echo base_url(); ?>light/assets/plugins/fullcalendar/dist/fullcalendar.css" rel="stylesheet" />
+        <!-- App Favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App title -->
+
+
+        <!-- DataTables -->
+        <link href="<?php echo base_url(); ?>/light/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App CSS -->
-        <link href="<?php echo base_url(); ?>light/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>light/assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>light/assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>light/assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>light/assets/css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>light/assets/css/responsive.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>light/assets/css/core.css" rel = "stylesheet" type = "text/css"> 
+        <link href="<?php echo base_url(); ?>/light/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/css/menu.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/light/assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,6 +40,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
+        <script src="<?php echo base_url(); ?>/light/assets/js/modernizr.min.js"></script>
 
         <script src="<?php echo base_url(); ?>/light/assets/js/modernizr.min.js"></script>
 
@@ -86,13 +96,7 @@
                                 </div>
                                 <!-- End Notification bar -->
                             </li>
-                            <li class="hidden-xs">
-                                <form role="search" class="app-search">
-                                    <input type="text" placeholder="Search..."
-                                           class="form-control">
-                                    <a href=""><i class="fa fa-search"></i></a>
-                                </form>
-                            </li>
+                            
                         </ul>
 
                     </div><!-- end container -->
@@ -157,7 +161,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-chart"></i><span> usuarios </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="chart-flot.html">Flot Chart</a></li>
+                                    <li><a href="<?php echo site_url('noticiasController/cargarNoticias'); ?>">Socios</a></li>
                                     <li><a href="chart-morris.html">Morris Chart</a></li>
                                     <li><a href="chart-chartist.html">Chartist Charts</a></li>
                                     <li><a href="chart-other.html">Other Chart</a></li>
