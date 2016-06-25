@@ -18,7 +18,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	}
 	
 	function checkPermission($permissionNeeded){
-		if(!isset($_SESSION["isLogged"])){
+		if(!isset($_SESSION["logeado"])){
 			//Si necesito permisos y no estoy loggeado
 			if($permissionNeeded>0){
 				redirect('main_controller/access_denied/1');
