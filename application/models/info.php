@@ -69,7 +69,7 @@
             'jugador_idjugador' => $idjugador ,
             'noticia_idnoticia' => $idnoticia ,
             'comentario' => $comentario ,
-            'fecha_comentario' => dateTime("Y-m-d H:i:s")
+            'fecha_comentario' => date('Y-m-d H:i:s')
             );
         
         $this->db->insert('comentarios', $data);
@@ -288,19 +288,15 @@
 
     function userLogin($usuario,$password){
         
-        $sql = "SELECT status,usuario,idjugador FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
+        $sql = "SELECT status,usuario FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
         $qry = $this->db->query($sql);
         $resultado = $qry->row_array();
         if($resultado!=null){
-            //actualizar ingreso 
-        $sql2 = "UPDATE jugador SET ultimo_ingreso=".dateTime("Y-m-d H:i:s")."WHERE usuario=".$usuario;
-        $qry2 = $this->db->query($sql2);
             return $resultado;
         }
         else{
             return null;
         }
-
     }
 
     function ingresar($user,$pass,$name,$surn,$rut,$sexo,$correo){
@@ -313,8 +309,8 @@
             'rut' => $rut,
             'sexo' => $sexo,
             'email' => $correo,
-            'fecha_registro' => dateTime("Y-m-d H:i:s"),
-            'ultimo_ingreso' => dateTime("Y-m-d H:i:s"),
+            'fecha_registro' => date(),
+            'ultimo_ingreso' => date(), 
             'status' => "activo");
         
         $this->db->insert('jugador', $data);

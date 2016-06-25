@@ -80,15 +80,15 @@ class noticiasController extends CI_Controller{
 		$contenido = $_POST['contenido'];
 		$this->load->model('info');
 		$resultado = $this->info->crearNoticia($titulo, $contenido);
-		cargarNoticias();
+		redirect('noticiasController/cargarNoticias', 'refresh');
 	}
 
 	function nuevoComentario($idNoticia){
 		$data = null;
 		$comentario = $_POST['comentario'];
 		$this->load->model('info');
-		$resultado = $this->info->crearComentario($idNoticia,$comentario,42);
-		cargarNoticias();
+		$resultado = $this->info->crearComentario($idNoticia,$comentario,$this->session->id);
+		redirect('noticiasController/cargarNoticias', 'refresh');
 	}
 
 
