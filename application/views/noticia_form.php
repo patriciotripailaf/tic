@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo form_label('Titulo:', 'titulo')."<br>";
 		echo form_input('titulo')."<br>";
 		echo form_label('Contenido:', 'contenido')."<br>";
-		echo form_input('contenido')."<br>";
+		echo form_textarea('contenido')."<br>";
 		echo "<br>";
 		echo form_submit('enviar', 'Crear');
 		echo form_close();

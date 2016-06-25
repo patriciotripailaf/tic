@@ -74,16 +74,16 @@ ENGINE = InnoDB;
 -- Table `tic`.`noticia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tic`.`noticia` (
-  `idnoticia` INT NOT NULL,
+  `idnoticia` INT NOT NULL AUTO_INCREMENT,
   `titular` VARCHAR(45) NULL,
   `contenido` VARCHAR(1000) NULL,
   `fecha` DATETIME NULL,
-  `autor_idsocio` INT NOT NULL,
+  `autor_idjugador` INT NOT NULL,
   PRIMARY KEY (`idnoticia`),
-  INDEX `fk_noticia_socio1_idx` (`autor_idsocio` ASC),
-  CONSTRAINT `fk_noticia_socio1`
-    FOREIGN KEY (`autor_idsocio`)
-    REFERENCES `tic`.`socio` (`idsocio`)
+  INDEX `fk_noticia_jugador1_idx` (`autor_idjugador` ASC),
+  CONSTRAINT `fk_noticia_jugador1`
+    FOREIGN KEY (`autor_idjugador`)
+    REFERENCES `tic`.`jugador` (`idjugador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -202,16 +202,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `tic`;
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (71, 'Noticia1', 'contenido1', '2015-01-10 08:00:00', 41);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (72, 'Noticia2', 'contenido2', '2015-02-10 08:00:00', 44);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (73, 'Noticia3', 'contenido3', '2015-03-10 08:00:00', 42);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (74, 'Noticia4', 'contenido4', '2015-04-10 08:00:00', 42);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (75, 'Noticia5', 'contenido5', '2015-05-10 08:00:00', 45);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (76, 'Noticia6', 'contenido6', '2015-06-10 08:00:00', 41);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (77, 'Noticia7', 'contenido7', '2015-07-10 08:00:00', 41);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (78, 'Noticia8', 'contenido8', '2015-08-10 08:00:00', 48);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (79, 'Noticia0', 'contenido9', '2015-09-10 08:00:00', 49);
-INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idsocio`) VALUES (80, 'Noticia10', 'contenido10', '2015-10-10 08:00:00', 50);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (71, 'Noticia1', 'contenido1', '2015-01-10 08:00:00', 1);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (72, 'Noticia2', 'contenido2', '2015-02-10 08:00:00', 2);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (73, 'Noticia3', 'contenido3', '2015-03-10 08:00:00', 3);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (74, 'Noticia4', 'contenido4', '2015-04-10 08:00:00', 4);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (75, 'Noticia5', 'contenido5', '2015-05-10 08:00:00', 5);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (76, 'Noticia6', 'contenido6', '2015-06-10 08:00:00', 6);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (77, 'Noticia7', 'contenido7', '2015-07-10 08:00:00', 7);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (78, 'Noticia8', 'contenido8', '2015-08-10 08:00:00', 8);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (79, 'Noticia0', 'contenido9', '2015-09-10 08:00:00', 9);
+INSERT INTO `tic`.`noticia` (`idnoticia`, `titular`, `contenido`, `fecha`, `autor_idjugador`) VALUES (80, 'Noticia10', 'contenido10', '2015-10-10 08:00:00', 10);
 
 COMMIT;
 

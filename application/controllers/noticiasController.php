@@ -23,7 +23,7 @@ class noticiasController extends CI_Controller{
 				$torneos[$i]['idnoticias'] = $row->idnoticia;
 				$torneos[$i]['titular'] = $row->titular;
 				$torneos[$i]['fecha'] = $row->fecha;
-				$torneos[$i]['autor'] = $row->autor_idsocio;
+				$torneos[$i]['autor'] = $row->autor_idjugador;
 				$i++;
 			}
 			$data['dataNoticias'] = $torneos;
@@ -84,7 +84,7 @@ class noticiasController extends CI_Controller{
 		$titulo = $_POST['titulo'];
 		$contenido = $_POST['contenido'];
 		$this->load->model('info');
-		$resultado = $this->info->crearNoticia($titulo, $contenido);
+		$resultado = $this->info->crearNoticia($titulo, $contenido, $this->session->userdata['id']);
 		redirect('noticiasController/cargarNoticias', 'refresh');
 	}
 
@@ -93,7 +93,8 @@ class noticiasController extends CI_Controller{
 		$data = null;
 		$comentario = $_POST['comentario'];
 		$this->load->model('info');
-		$resultado = $this->info->crearComentario($idNoticia,$comentario,$this->session->id);
+		$var = $this->session->userdata;
+		$resultado = $this->info->crearComentario($idNoticia,$comentario,$this->session->userdata['id']);
 		redirect('noticiasController/cargarNoticias', 'refresh');
 	}
 

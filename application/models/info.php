@@ -153,12 +153,13 @@
         $qry = $this->db->query($sql);
     }
 
-    function crearNoticia($titulo,$contenido){
+    function crearNoticia($titulo,$contenido,$idjugador){
         
         $data = array(
             'titular' => $titulo,
-            'fecha' => date("Y-m-d"),
-            'autor_idsocio' => 42 );
+            'fecha' => date('Y-m-d H:i:s'),
+            'contenido' => $contenido,
+            'autor_idjugador' => $idjugador );
         
         $this->db->insert('noticia', $data);
     }
@@ -288,7 +289,7 @@
 
     function userLogin($usuario,$password){
         
-        $sql = "SELECT status,usuario FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
+        $sql = "SELECT status,usuario,idjugador FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
         $qry = $this->db->query($sql);
         $resultado = $qry->row_array();
         if($resultado!=null){
