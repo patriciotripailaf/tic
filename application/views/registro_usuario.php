@@ -8,7 +8,7 @@
 	<body>
 	<h1>REGISTRO</h1><hr>
 	<?php	
-		echo form_open('registro/nuevo_registro')."\n"; 
+		echo form_open('control_registro/nuevo_registro')."\n"; 
 		
 		echo form_label('Nombre:', 'nombre')."\n";
 		echo form_input('nombre')."<br>";
@@ -40,8 +40,8 @@
 	
 		echo form_submit('enviar', 'Registrar');
 		echo form_close();
+		echo anchor('control_login/index', 'Volver') 
+	?>
 
-?>
-
-	</body>
+</body>
 </html>
