@@ -30,10 +30,11 @@ class control_login extends CI_Controller{
 		
 		$this->load->model('info');
 		$resultado = $this->info->userLogin($user,$pass);
+		$resultadoAdmin = $this->info->userAdmin($user);
 
 		if($resultado != null){
 			$data = array(
-                   'administrador' => $resultado['administrador'],
+                   'administrador' => $resultadoAdmin['administrador'],
 					'status' => $resultado['status'],
 					'usuario' => $resultado['usuario']);
 				   

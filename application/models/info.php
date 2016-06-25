@@ -184,7 +184,7 @@
 
     function userLogin($usuario,$password){
         
-        $sql = "SELECT administrador,status,usuario FROM socio INNER JOIN jugador ON idjugador = jugador_idjugador where usuario = '".$usuario."' AND password = '".$password."'";
+        $sql = "SELECT status,usuario FROM jugador where usuario = '".$usuario."' AND password = '".$password."'";
         $qry = $this->db->query($sql);
         $resultado = $qry->row_array();
         if($resultado!=null){
