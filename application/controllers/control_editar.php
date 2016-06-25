@@ -11,6 +11,8 @@ class control_editar extends CI_Controller{
 	}
 	
 	function editar(){
+		$this->load->view('menu_abajo');
+		$this->load->view('menu');
 		$this->load->view('editar_usuario');
 	}
 	

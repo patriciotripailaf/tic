@@ -15,8 +15,12 @@ class control_login extends CI_Controller{
 		
 		if($this->session->userdata('administrador') != FALSE){
 			if($data['administrador']==1){
+				$this->load->view('menu_abajo');
+				$this->load->view('menu');
 				$this->load->view('admin_view',$data);
 			}else{
+				$this->load->view('menu_abajo');
+				$this->load->view('menu');
 				$this->load->view('normal_view',$data);
 			}
 		}else{
@@ -49,6 +53,8 @@ class control_login extends CI_Controller{
 			$this->session->set_userdata($data);
 			
 			if($data['administrador']== 1){
+				$this->load->view('menu_abajo');
+				$this->load->view('menu');
 				$this->load->view('admin_view',$data);
 			}
 			else{
@@ -56,6 +62,8 @@ class control_login extends CI_Controller{
 					$this->load->view('ban_view',$data);
 				}else
 					{
+					$this->load->view('menu_abajo');
+					$this->load->view('menu');
 					$this->load->view('normal_view',$data);
 				}
 			}
