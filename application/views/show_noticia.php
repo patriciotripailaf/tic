@@ -47,8 +47,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 	<div class="col-lg-6">
 	<div class="card-box"	>
-		<h1> Form agregar Comentario</h1>
-		
+		<h1>agregar Comentario</h1>
+		<?php
+			echo form_open('noticiasController/nuevoComentario/'.$dataNoticias[0]['idNoticia'])."<br>";
+			echo form_label('Comentario:', 'comentario')."<br>";
+			echo form_textarea('comentario')."<br>";
+			echo "<br>";
+			echo form_submit('enviar', 'Crear');
+			echo form_close();
+		?>
+
 	</div>
 	</div>
 

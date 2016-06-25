@@ -47,6 +47,7 @@ class noticiasController extends CI_Controller{
 		if($resultado != null){
 			$i=0;
 			foreach ($resultado as $row) {
+				$torneos[$i]['idNoticia'] = $id;
 				$torneos[$i]['titular'] = $row->titular;
 				$torneos[$i]['fecha'] = $row->fecha;
 				$torneos[$i]['contenido'] = $row->contenido;
@@ -82,12 +83,11 @@ class noticiasController extends CI_Controller{
 		cargarNoticias();
 	}
 
-	function nuevoComentario(){
+	function nuevoComentario($idNoticia){
 		$data = null;
-		$titulo = $_POST['titulo'];
-		$contenido = $_POST['contenido'];
+		$comentario = $_POST['comentario'];
 		$this->load->model('info');
-		$resultado = $this->info->crearNoticia($titulo, $contenido);
+		$resultado = $this->info->crearComentario($idNoticia,$comentario,42);
 		cargarNoticias();
 	}
 
