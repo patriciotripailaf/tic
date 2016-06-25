@@ -37,7 +37,20 @@ class sociosController extends CI_Controller{
 	}
 
 	function crearSocio(){
-		$data = null;
+		$this->load->model('info');
+		$resultado = $this->info->listaJugadoresSinSocio();
+		if($resultado != null){
+			$i=0;
+			foreach ($resultado as $row) {
+				$listaJugadores[$i]['nombre_jugador'] = $row->nombre_jugador;
+				$listaJugadores[$i]['apellido'] = $row->apellido;
+				$listaJugadores[$i]['idjugador'] = $row->idjugador;
+				$i++;
+			}
+			$data['listaJugadores'] = $listaJugadores;
+		}else{
+			$data = null;
+		}
 		$this->load->view('menu');
 		$this->load->view('socio_form',$data);
 		$this->load->view('menu_abajo');
@@ -58,6 +71,7 @@ class sociosController extends CI_Controller{
 	function editarSocioForm($idSocio){
 		$this->load->model('info');
 		$resultado = $this->info->get_socio($idSocio);
+		$resultado2 = $this->info->listaJugadoresSinSocio();
 		if($resultado != null){
 			foreach ($resultado as $row) {
 				$socio['idsocio'] = $idSocio;
@@ -67,7 +81,15 @@ class sociosController extends CI_Controller{
 				$socio['cuotas_pagadas'] = $row->cuotas_pagadas;
 				$socio['jugador_idjugador'] = $row->jugador_idjugador;
 			}
+			$i=0;
+			foreach ($resultado2 as $row) {
+				$listaJugadores[$i]['nombre_jugador'] = $row->nombre_jugador;
+				$listaJugadores[$i]['apellido'] = $row->apellido;
+				$listaJugadores[$i]['idjugador'] = $row->idjugador;
+				$i++;
+			}
 			$data['dataSocio'] = $socio;
+			$data['listaJugadores'] = $listaJugadores;
 			$this->load->view('menu');
 			$this->load->view('socio_form',$data);
 			$this->load->view('menu_abajo');

@@ -22,7 +22,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo form_label('Dirección:', 'direccion')."<br>";
 		echo form_input('direccion')."<br>";
 		echo form_label('Ganador:', 'ganador')."<br>";
-		echo form_input('ganador')."<br>";
+		echo '<select name = "ganador">';
+		echo '<option value = "">Ninguno</option>';
+		for($i=0;$i<count($listaJugadores);$i++){
+			echo '<option value = "'.$listaJugadores[$i]['idjugador'].'">'.$listaJugadores[$i]['nombre_jugador'].' '.$listaJugadores[$i]['apellido'].'</option>';
+		}
+		echo '</select><br>';
 		echo "<br>";
 		echo form_submit('enviar', 'Crear');
 		echo form_close();
@@ -35,7 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo form_label('Dirección:', 'direccion')."<br>";
 		echo form_input(['name' => 'direccion', 'value' => $dataTorneo['direccion']])."<br>";
 		echo form_label('Ganador:', 'ganador')."<br>";
-		echo form_input(['name' => 'ganador', 'value' => $dataTorneo['ganador']])."<br>";
+		echo '<select name = "ganador">';
+		echo '<option value = "">Ninguno</option>';
+		for($i=0;$i<count($listaJugadores);$i++){
+			echo '<option value = "'.$listaJugadores[$i]['idjugador'].'">'.$listaJugadores[$i]['nombre_jugador'].' '.$listaJugadores[$i]['apellido'].'</option>';
+		}
+		echo '</select><br>';
 		echo "<br>";
 		echo form_submit('enviar', 'Modificar');
 		echo form_close();

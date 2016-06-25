@@ -35,7 +35,20 @@ class tournamentController extends CI_Controller{
 	}
 
 	function crearTorneo(){
-		$data = null;
+		$this->load->model('info');
+		$resultado = $this->info->listaJugadores();
+		if($resultado != null){
+			$i=0;
+			foreach ($resultado as $row) {
+				$listaJugadores[$i]['nombre_jugador'] = $row->nombre_jugador;
+				$listaJugadores[$i]['apellido'] = $row->apellido;
+				$listaJugadores[$i]['idjugador'] = $row->idjugador;
+				$i++;
+			}
+			$data['listaJugadores'] = $listaJugadores;
+		}else{
+			$data = null;
+		}
 		$this->load->view('menu');
 		$this->load->view('tournament_form',$data);
 		$this->load->view('menu_abajo');
@@ -57,6 +70,17 @@ class tournamentController extends CI_Controller{
 	function editarTorneoForm($idTorneo){
 		$this->load->model('info');
 		$resultado = $this->info->get_torneo($idTorneo);
+		$resultado2 = $this->info->listaJugadores();
+		if($resultado2 != null){
+			$i=0;
+			foreach ($resultado2 as $row) {
+				$listaJugadores[$i]['nombre_jugador'] = $row->nombre_jugador;
+				$listaJugadores[$i]['apellido'] = $row->apellido;
+				$listaJugadores[$i]['idjugador'] = $row->idjugador;
+				$i++;
+			}
+			$data['listaJugadores'] = $listaJugadores;
+		}
 		if($resultado != null){
 			foreach ($resultado as $row) {
 				$torneo['idTorneo'] = $row->idtorneo;

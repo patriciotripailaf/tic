@@ -200,6 +200,30 @@
         }
     }
 
+    function listaJugadoresSinSocio(){
+        
+        $sql = "SELECT nombre_jugador,apellido,idjugador FROM jugador LEFT JOIN socio ON jugador.idjugador=socio.jugador_idjugador WHERE idsocio IS NULL";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
+    function listaJugadores(){
+        
+        $sql = "SELECT nombre_jugador,apellido,idjugador FROM jugador";
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
     function crearSocio($tipo, $posicion, $administrador, $cuotas_pagadas, $jugador_idjugador){
         $date = date('Y-m-d');
         $data = array(
