@@ -22,11 +22,11 @@ class control_registro extends CI_Controller{
 		$rut = $_POST['rut'];
 		$sexo = $_POST['sexo'];
 		$correo = $_POST['correo'];
-		
+		$avatar = $_FILES["foto"]["tmp_name"];
 		$this->load->model('info');
-		$resultado = $this->info->ingresar($user,$pass,$name,$surn,$rut,$sexo,$correo);
-		
+		$id = $this->info->ingresar($user,$pass,$name,$surn,$rut,$sexo,$correo);
 		$this->load->view('registro_exitoso');
+		copy($avatar,"light/assets/images/avatars/".$id);
 	}
 	
 	// function producto(){
