@@ -19,6 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<th>Fecha</th>
 				<th>Dirección</th>
 				<th>Ganador</th>
+				<th>Editar</th>
+				<th>Borrar</th>
 				<?php
 					for($i=0;$i<count($dataTorneos);$i++){
 						echo '<tr>';
@@ -27,6 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo '<td>'.$dataTorneos[$i]['fechaTorneo'].'</td>';
 						echo '<td>'.$dataTorneos[$i]['direccion'].'</td>';
 						echo '<td>'.$dataTorneos[$i]['ganador'].'</td>';
+						echo '<td>';
+						echo anchor('tournamentController/editarTorneoForm/'.$dataTorneos[$i]['idTorneo'], 'editar');
+						echo '</td>';
+						echo '<td>';
+						echo anchor('tournamentController/borrarTorneo/'.$dataTorneos[$i]['idTorneo'], 'borrar');
+						echo '</td>';
 						echo '</tr>';
 					}
 				?>

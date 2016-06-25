@@ -10,7 +10,9 @@ class MainController extends CI_Controller{
 	}
 	function index(){
 		$data = null;
+		$this->load->view('menu');
 		$this->load->view('home',$data);
+		$this->load->view('menu_abajo');
 	}
 }
 ?>

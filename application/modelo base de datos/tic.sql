@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `tic`.`noticia` (
   `titular` VARCHAR(45) NULL,
   `fecha` DATE NULL,
   `autor_idsocio` INT NOT NULL,
-  PRIMARY KEY (`idnoticia`, `autor_idsocio`),
+  PRIMARY KEY (`idnoticia`),
   INDEX `fk_noticia_socio1_idx` (`autor_idsocio` ASC),
   CONSTRAINT `fk_noticia_socio1`
     FOREIGN KEY (`autor_idsocio`)
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `tic`.`jugador_has_torneo` (
   CONSTRAINT `fk_jugador_has_torneo_torneo1`
     FOREIGN KEY (`torneo_idtorneo`)
     REFERENCES `tic`.`torneo` (`idtorneo`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -119,18 +119,17 @@ CREATE TABLE IF NOT EXISTS `tic`.`comentarios` (
   `fecha_comentario` DATETIME NULL,
   `jugador_idjugador` INT NOT NULL,
   `noticia_idnoticia` INT NOT NULL,
-  `noticia_autor_idsocio` INT NOT NULL,
   PRIMARY KEY (`idcomentarios`),
   INDEX `fk_comentarios_jugador1_idx` (`jugador_idjugador` ASC),
-  INDEX `fk_comentarios_noticia1_idx` (`noticia_idnoticia` ASC, `noticia_autor_idsocio` ASC),
+  INDEX `fk_comentarios_noticia1_idx` (`noticia_idnoticia` ASC),
   CONSTRAINT `fk_comentarios_jugador1`
     FOREIGN KEY (`jugador_idjugador`)
     REFERENCES `tic`.`jugador` (`idjugador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_comentarios_noticia1`
-    FOREIGN KEY (`noticia_idnoticia` , `noticia_autor_idsocio`)
-    REFERENCES `tic`.`noticia` (`idnoticia` , `autor_idsocio`)
+    FOREIGN KEY (`noticia_idnoticia`)
+    REFERENCES `tic`.`noticia` (`idnoticia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -240,11 +239,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `tic`;
-INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`, `noticia_autor_idsocio`) VALUES (1, 'buena', '2016-01-01 08:00:00', 1, 71, 41);
-INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`, `noticia_autor_idsocio`) VALUES (2, 'buena', '2016-01-02 08:00:00', 2, 71, 41);
-INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`, `noticia_autor_idsocio`) VALUES (3, 'mala', '2016-01-03 08:00:00', 3, 71, 41);
-INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`, `noticia_autor_idsocio`) VALUES (4, 'mala', '2016-01-04 08:00:00', 4, 72, 44);
-INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`, `noticia_autor_idsocio`) VALUES (5, 'mala', '2016-01-05 08:00:00', 5, 72, 44);
+INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`) VALUES (1, 'buena', '2016-01-01 08:00:00', 1, 71);
+INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`) VALUES (2, 'buena', '2016-01-02 08:00:00', 2, 71);
+INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`) VALUES (3, 'mala', '2016-01-03 08:00:00', 3, 71);
+INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`) VALUES (4, 'mala', '2016-01-04 08:00:00', 4, 72);
+INSERT INTO `tic`.`comentarios` (`idcomentarios`, `comentario`, `fecha_comentario`, `jugador_idjugador`, `noticia_idnoticia`) VALUES (5, 'mala', '2016-01-05 08:00:00', 5, 72);
 
 COMMIT;
 

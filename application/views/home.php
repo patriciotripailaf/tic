@@ -13,6 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <h1>Home page(futuro menu lateral?)</h1><br>
 <?php	
 		echo anchor('tournamentController/cargarTorneos','Cargar Torneos');
+		echo "<br>";
+		echo anchor('noticiasController/cargarNoticias','Cargar Noticias');
 
 ?>
 </body>
