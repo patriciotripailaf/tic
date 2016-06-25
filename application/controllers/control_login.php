@@ -4,10 +4,13 @@ class control_login extends CI_Controller{
 	public function __construct()
        {
         parent::__construct();
-        $this->load->helper('form');
-		$this->load->helper('url');
-		$this->load->library('session');
 		$this->load->database();
+		$this->load->library('session');
+		$this->load->helper('html');
+		$this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->helper('permisos');
+
 	}
 	
 	function index(){
@@ -15,7 +18,6 @@ class control_login extends CI_Controller{
 		
 		if($this->session->userdata('administrador') != FALSE){
 			if($data['administrador']==1){
-				
 				$this->load->view('menu');
 				$this->load->view('admin_view',$data);
 				$this->load->view('menu_abajo');
@@ -57,18 +59,20 @@ class control_login extends CI_Controller{
 			$this->session->set_userdata($data);
 			
 			if($data['administrador']== 1){
-				$this->load->view('menu_abajo');
+				
 				$this->load->view('menu');
 				$this->load->view('admin_view',$data);
+				$this->load->view('menu_abajo');
 			}
 			else{
 				if($data['status']== "baneado"){
 					$this->load->view('ban_view',$data);
 				}else
 					{
-					$this->load->view('menu_abajo');
+					
 					$this->load->view('menu');
 					$this->load->view('normal_view',$data);
+					$this->load->view('menu_abajo');
 				}
 			}
 		}

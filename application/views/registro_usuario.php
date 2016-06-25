@@ -25,9 +25,9 @@
 		);
 		echo form_label('Sexo:', 'sexo')."\n";
 		echo form_dropdown('sexo', $options)."<br>";
-
-		echo form_label('FALTA UPLOAD DE AVATAR', 'nada')."<br>"."\n";
-		
+		?>
+		<input id='foto-animal'    accept="image/*" name='foto' type='file' required> <br>
+		<?php	
 		echo form_label('Correo:', 'correo')."\n";
 		echo form_input('correo')."<br>";
 
