@@ -211,7 +211,9 @@
             'apellido' => $surn,
             'rut' => $rut,
             'sexo' => $sexo,
-            'email' => $correo, 
+            'email' => $correo,
+            'fecha_registro' => date(),
+            'ultimo_ingreso' => date(), 
             'status' => "activo");
         
         $this->db->insert('jugador', $data);
