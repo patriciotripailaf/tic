@@ -87,6 +87,7 @@ class control_login extends CI_Controller{
 	function salir(){
 		$this->session->sess_destroy();
 		$this->load->view('login_usuario');
+		redirect('', 'refresh');
 	}
 }
 ?>
