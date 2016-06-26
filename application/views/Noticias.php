@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         				</div><!-- end col -->
 
                         				<div class="col-lg-6">
-                        					<a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/TwitterDev/timelines/539487832448843776">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        					<a class="twitter-timeline" data-lang="es" data-width="500" data-height="400" href="https://twitter.com/clubajedchile">Tweets by clubajedchile</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                         				</div><!-- end col -->
 
                         			</div><!-- end row -->
