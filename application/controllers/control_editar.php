@@ -36,9 +36,12 @@ class control_editar extends CI_Controller{
 		$data = null;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
+		$avatar = $_FILES['foto']['tmp_name'];
 		$this->load->model('info');
 		$this->info->editarJugador($idjugador, $email, $password);
+		copy($avatar,"light/assets/images/avatars/".$idjugador);
 		redirect('jugadorController/cargarJugadores', 'refresh');
+
 	}
 	
 	// function nuevo_registro(){
