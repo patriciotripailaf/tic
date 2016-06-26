@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -93,6 +92,7 @@
                     <div class="user-box">
                         <div class="user-img">
                             <?php 
+                           
                             echo "<img src='".base_url()."light/assets/images/avatars/".$_SESSION['id']."' alt='user-img' title='Mat Helme' class='img-circle img-thumbnail img-responsive'>"
                             ?>
 
