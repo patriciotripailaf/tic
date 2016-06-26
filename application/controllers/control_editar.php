@@ -16,6 +16,30 @@ class control_editar extends CI_Controller{
 		$this->load->view('editar_usuario');
 		$this->load->view('menu_abajo');
 	}
+
+	function editarJugadorForm($idJugador){
+		$this->load->model('info');
+		$resultado = $this->info->get_jugador($idJugador);
+		if($resultado != null){
+			foreach ($resultado as $row) {
+				$jugador['email'] = $row->email;
+				$jugador['idjugador'] = $idJugador;
+			}
+			$data['dataJugador'] = $jugador;
+			$this->load->view('menu');
+			$this->load->view('editar_usuario',$data);
+			$this->load->view('menu_abajo');
+		}
+	}
+
+	function editarJugador($idjugador){
+		$data = null;
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$this->load->model('info');
+		$this->info->editarJugador($idjugador, $email, $password);
+		redirect('jugadorController/cargarJugadores', 'refresh');
+	}
 	
 	// function nuevo_registro(){
 	// 	$user = $_POST['username'];

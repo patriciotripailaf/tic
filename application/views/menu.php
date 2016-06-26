@@ -102,7 +102,7 @@
                          ?></a> </h5>
                         <ul class="list-inline">
                             <li>
-                            <?php  echo    anchor('control_editar/editar', 'Editar Datos');?>
+                            <?php  echo    anchor('control_editar/editarJugadorForm/'.$_SESSION['id'], 'Editar Datos');?>
                             </li>
 
                             <li>

@@ -8,14 +8,12 @@
 <body>	
 <h1>EDITAR DATOS</h1><hr>
 <?php	
-	echo form_open('registro/nuevo_registro')."<br>"; 
+	echo form_open('control_editar/editarJugador/'.$dataJugador['idjugador'])."<br>"; 
 	
-	echo form_label('Cambiar Imagen:', 'nada')."<br>"."\n";
+	echo form_label('Editar Correo:', 'email')."<br>";
+	echo form_input(['name' => 'email', 'type' => 'email', 'value' => $dataJugador['email']])."<br>";
 	
-	echo form_label('Editar Correo:', 'correo')."<br>";
-	echo form_input('correo')."<br>";
-	
-	echo form_label('Editar Contraseña:', 'pass')."<br>";
+	echo form_label('Editar Contraseña:', 'password')."<br>";
 	echo form_password('password')."<br>"."<br>";
 	echo form_submit('enviar', 'Editar');
 	echo form_close();

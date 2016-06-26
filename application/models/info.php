@@ -275,6 +275,24 @@
         }
     }
 
+    function editarJugador($idJugador, $email, $password){
+        
+        $sql = "UPDATE jugador SET email='".$email."', password='".$password."' WHERE idjugador=".$idJugador;
+        $qry = $this->db->query($sql);
+    }
+
+    function get_jugador($idjugador){
+        
+        $sql = "SELECT email,password FROM `jugador` WHERE idjugador = ".$idjugador;
+        $qry = $this->db->query($sql);
+        if($qry->num_rows() > 0){
+            return $qry->result();
+        }
+        else{
+            return null;
+        }
+    }
+
     function banearJugador($idJugador){
         
         $sql = "UPDATE jugador SET status='baneado' WHERE idjugador=".$idJugador;
