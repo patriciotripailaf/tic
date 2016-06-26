@@ -8,9 +8,11 @@ class tournamentController extends CI_Controller{
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->library('session');
+		$this->load->helper('permisos');
 		}
 
 	function cargarTorneos(){
+		permiso(0);
 		$this->load->model('info');
 		$resultado = $this->info->torneos();
 		if($resultado != null){
@@ -36,6 +38,7 @@ class tournamentController extends CI_Controller{
 	}
 
 	function crearTorneo(){
+		permiso(1);
 		$this->load->model('info');
 		$resultado = $this->info->listaJugadores();
 		if($resultado != null){
@@ -56,6 +59,7 @@ class tournamentController extends CI_Controller{
 	}
 
 	function nuevoTorneo(){
+		permiso(1);
 		$data = null;
 		$nombre = $_POST['nombre'];
 		$fecha = $_POST['fecha'];
@@ -69,6 +73,7 @@ class tournamentController extends CI_Controller{
 	}
 
 	function editarTorneoForm($idTorneo){
+		permiso(1);
 		$this->load->model('info');
 		$resultado = $this->info->get_torneo($idTorneo);
 		$resultado2 = $this->info->listaJugadores();
@@ -97,6 +102,7 @@ class tournamentController extends CI_Controller{
 		}
 	}
 	function editarTorneo($idTorneo){
+		permiso(1);
 		$data = null;
 		$nombre = $_POST['nombre'];
 		$fecha = $_POST['fecha'];
@@ -110,6 +116,7 @@ class tournamentController extends CI_Controller{
 	}
 
 	function borrarTorneo($idTorneo){
+		permiso(1);
 		$data = null;
 		$this->load->model('info');
 		$this->info->eliminarTorneo($idTorneo);

@@ -14,6 +14,7 @@ class noticiasController extends CI_Controller{
 		}
 
 	function cargarNoticias(){
+		permiso(0);
 		$this->load->model('info');
 		$this->load->view('menu');
 		$resultado = $this->info->noticias();
