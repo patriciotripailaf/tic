@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h1>Información de los Usuarios</h1>
 			</div>
 		</div>
-		<div class="col-lg-8">
+		<div class="col-lg-12">
 			<div class="card-box">
 				<table class="table table-striped table-bordered dt-responsive nowrap">
 					<thead>
