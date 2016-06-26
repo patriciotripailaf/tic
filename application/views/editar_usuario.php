@@ -19,7 +19,7 @@
 	echo form_password('password')."<br>"."<br>";
 	echo form_submit('enviar', 'Editar');
 	echo form_close();
-	echo anchor('control_login/index', 'Volver a Login')."<br>";
+	echo anchor('', 'Volver a Login')."<br>";
 ?>
 </body>
 </html>

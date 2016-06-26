@@ -41,7 +41,7 @@
 	
 		echo form_submit('enviar', 'Registrar');
 		echo form_close();
-		echo anchor('control_login/index', 'Volver') 
+		echo anchor('', 'Volver') 
 	?>
 
 </body>

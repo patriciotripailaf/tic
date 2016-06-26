@@ -7,6 +7,6 @@
 </head>
 <body>
 	<h1>DATOS INGRESADOS INCORRECTOS</h1><hr>
-	<?php echo anchor('control_login/index', 'Volver') ?>
+	<?php echo anchor('', 'Volver') ?>
 </body>
 </html>
