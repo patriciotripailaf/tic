@@ -8,18 +8,15 @@
 <body>	
 <h1>EDITAR DATOS</h1><hr>
 <?php	
-	echo form_open_multipart('registro/nuevo_registro')."\n"; 
+	echo form_open('registro/nuevo_registro')."<br>"; 
 	
-	?>
-		<input id='foto-animal'    accept="image/*" name='foto' type='file' required> <br>
-		<?php	
+	echo form_label('Cambiar Imagen:', 'nada')."<br>"."\n";
 	
-	echo form_label('Editar Correo:', 'correo')."\n";
+	echo form_label('Editar Correo:', 'correo')."<br>";
 	echo form_input('correo')."<br>";
 	
-	echo form_label('Editar Contraseña:', 'pass')."\n";
-	echo form_password('password')."<br>";
-
+	echo form_label('Editar Contraseña:', 'pass')."<br>";
+	echo form_password('password')."<br>"."<br>";
 	echo form_submit('enviar', 'Editar');
 	echo form_close();
 	echo anchor('control_login/index', 'Volver a Login')."<br>";
