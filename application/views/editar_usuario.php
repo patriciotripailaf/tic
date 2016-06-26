@@ -8,9 +8,11 @@
 <body>	
 <h1>EDITAR DATOS</h1><hr>
 <?php	
-	echo form_open('registro/nuevo_registro')."\n"; 
+	echo form_open_multipart('registro/nuevo_registro')."\n"; 
 	
-	echo form_label('Cambiar Imagen:', 'nada')."<br>"."\n";
+	?>
+		<input id='foto-animal'    accept="image/*" name='foto' type='file' required> <br>
+		<?php	
 	
 	echo form_label('Editar Correo:', 'correo')."\n";
 	echo form_input('correo')."<br>";

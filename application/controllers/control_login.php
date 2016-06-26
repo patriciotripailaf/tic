@@ -58,7 +58,8 @@ class control_login extends CI_Controller{
 			}
 				   
 			$this->session->set_userdata($data);
-			
+			$_SESSION["id"] = $resultado['idjugador'];
+			$_SESSION["usuario"] = $resultado['usuario'];
 			if($data['administrador']== 1){
 				
 				$this->load->view('menu');

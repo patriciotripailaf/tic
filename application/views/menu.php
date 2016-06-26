@@ -77,27 +77,7 @@
                             </li>
                         </ul>
 
-                        <!-- Right(Notification and Searchbox -->
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <!-- Notification -->
-                                <div class="notification-box">
-                                    <ul class="list-inline m-b-0">
-                                        <li>
-                                            <a href="javascript:void(0);" class="right-bar-toggle">
-                                                <i class="zmdi zmdi-notifications-none"></i>
-                                            </a>
-                                            <div class="noti-dot">
-                                                <span class="dot"></span>
-                                                <span class="pulse"></span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- End Notification bar -->
-                            </li>
-                            
-                        </ul>
+                    
 
                     </div><!-- end container -->
                 </div><!-- end navbar -->
@@ -112,21 +92,21 @@
                     <!-- User -->
                     <div class="user-box">
                         <div class="user-img">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
-                            <div class="user-status offline"><i class="zmdi zmdi-dot-circle"></i></div>
+                            <?php 
+                            echo "<img src='".base_url()."light/assets/images/avatars/".$_SESSION['id']."' alt='user-img' title='Mat Helme' class='img-circle img-thumbnail img-responsive'>"
+                            ?>
+
                         </div>
-                        <h5><a href="#">Mat Helme</a> </h5>
+                        <h5><a href="#"><?php 
+                            echo $_SESSION['usuario']
+                         ?></a> </h5>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" >
-                                    <i class="zmdi zmdi-settings"></i>
-                                </a>
+                            <?php  echo    anchor('control_editar/editar', 'Editar Datos');?>
                             </li>
 
                             <li>
-                                <a href="#" class="text-custom">
-                                    <i class="zmdi zmdi-power"></i>
-                                </a>
+                            <?php  echo   anchor('control_login/salir', 'Salir'); ?>
                             </li>
 
                         </ul>
@@ -136,7 +116,7 @@
                     <!--- Sidebar -->
                     <div id="sidebar-menu">
                         <ul>
-                        	<li class="text-muted menu-title">Navigation</li>
+                        	<li class="text-muted menu-title">Navegacion</li>
 
                          
 
